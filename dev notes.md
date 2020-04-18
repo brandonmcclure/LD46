@@ -1,0 +1,15 @@
+# 2020.04.17 
+## 6pm
+Getting my code and repo setup.
+Following <https://phptherightway.com/> to help get me started on the right foot. 
+
+Using <https://github.com/php-pds/skeleton> as the standard for structureing my code
+
+
+## 8:44 PM
+Have some ideas down on paper. A basic "snake" type game where you need to keep "it" alive and loose lifeforce over time would be cool. IDK how to do animation, will need client scripting for that, so also thinking a text based game would be cool. 
+
+Maybe you are a vet and you need to keep "it" alive, but all you have is a silloute and some vague info, then you select a habitat, food, and some recreation for it to do. You either kill it or not....
+
+
+Had an idea that rips off of Seedship for android and my current fav No Mans Sky. You have to keep a ship alive over a long journey. would be text based. Think of a organic starship that could grow/evolve as you go, or you could totally kill it. 
