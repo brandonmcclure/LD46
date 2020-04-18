@@ -25,8 +25,16 @@ E;
 
 echo $outHTML;
 ?>
-<?php $buttonTitle = "Investigate the lifeform"; include("AdvanceStateButton.php"); ?>
-<?php $buttonTitle = "Disable the ships alarms to allow you to go back to sleep"; include("AdvanceStateButton.php"); ?>
+<?php 
+    $buttonTitle = "Investigate the lifeform"; 
+    $Action = "StartGame";
+    include("AdvanceStateButton.php"); 
+?>
+<?php 
+    $buttonTitle = "Disable the ships alarms to allow you to go back to sleep";
+    $Action = "EasyOut";
+    include("AdvanceStateButton.php"); 
+?>
 
 <?php include("jumbotronHeader.php"); ?>
 

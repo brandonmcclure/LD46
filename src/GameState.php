@@ -1,5 +1,6 @@
 <?php
 require_once 'RandomEvents.php';
+require_once 'Entities.php';
 
 abstract class ValidGameStates
 {
@@ -14,6 +15,7 @@ class GameState{
     private $EntityLifeForce = 10;
     private $NumberOfTurnsTaken = 0;
     private $isDebugMode = False;
+    private $gameEntity;
 
     public function __construct (...$gameState){
         if($gameState){
@@ -24,6 +26,8 @@ class GameState{
         else{
             $this->currentState = 0;
             $this->RandomEventsRepository = new RandomEventsHardcodedRepository();
+            $entityRepo = new EntityRepository();
+            $this->gameEntity = $entityRepo->GetRandomEntity();
         }
     }
 
@@ -63,5 +67,19 @@ class GameState{
     public function getIsDebugMode()
     {
         return $this->isDebugMode;
+    }
+
+    public function TurnOnDebugMode()
+    {
+        $this->isDebugMode = true;
+
+        return $this;
+    }
+
+    public function TurnOffDebugMode()
+    {
+        $this->isDebugMode = false;
+
+        return $this;
     }
 }

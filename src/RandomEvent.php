@@ -2,11 +2,13 @@
 
 class RandomEvent{
 
+    private $eventType;
     private $eventDescription;
 
 
-    public function __construct ($_eventDescription){
-        $this->eventDescription = $_eventDescription;
+    public function __construct ($eventType, $eventDescription){
+        $this->eventDescription = $eventDescription;
+        $this->eventType = $eventType;
     }
 
 
@@ -19,5 +21,13 @@ class RandomEvent{
         return <<<e
         $this->eventDescription
 e;
+    }
+
+    /**
+     * Get the value of eventType
+     */ 
+    public function getEventType()
+    {
+        return $this->eventType;
     }
 }
