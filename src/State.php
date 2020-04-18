@@ -13,11 +13,13 @@ if ($prevStateEnum = 0){
 
 if($previousStateObj->getEntityLifeForce() <= 0){
     $_SESSION['gameState']->EnterDeathState();
+    exit;
 }
 if ($prevStateEnum = 1){
     $_SESSION['gameState']->EnterRandomEventState();
 }
 ?>
-<?php include("AdvanceStateButton.php"); ?>
+<?php $buttonTitle = "Advance State"; include("AdvanceStateButton.php"); ?>
+
 <?php include("jumbotronFooter.php"); ?>
 <?php include("footer.php"); ?>

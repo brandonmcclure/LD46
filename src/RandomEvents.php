@@ -1,11 +1,7 @@
 <?php
 require 'RandomEvent.php';
-interface RandomEventsRepositoryInterface
-{
-    public function GetRandomEvent();
-}
 
-class RandomEventsHardcodedRepository implements RandomEventsRepositoryInterface
+class RandomEventsHardcodedRepository
 {
     protected $RandomEvent = array();
 

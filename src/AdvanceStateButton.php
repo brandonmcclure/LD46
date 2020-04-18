@@ -1,1 +1,1 @@
-<br><br><a href=state.php>advance state</a>
+<br><br><a href="State.php"><?php echo($buttonTitle); unset($buttonTitle);?></a>

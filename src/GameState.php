@@ -13,6 +13,7 @@ class GameState{
     private $RandomEventsRepository;
     private $EntityLifeForce = 10;
     private $NumberOfTurnsTaken = 0;
+    private $isDebugMode = False;
 
     public function __construct (...$gameState){
         if($gameState){
@@ -42,6 +43,7 @@ class GameState{
     }
 
     public function EnterDeathState(){
+        $this->currentState = 99;
         echo("You loose, you lasted {$this->NumberOfTurnsTaken} turns. Try again?");
         echo("<br><br><a href=ResetSession.php>Yes</a>");
     }
@@ -53,5 +55,13 @@ class GameState{
     public function getEntityLifeForce()
     {
         return $this->EntityLifeForce;
+    }
+
+    /**
+     * Get the value of isDebugMode
+     */ 
+    public function getIsDebugMode()
+    {
+        return $this->isDebugMode;
     }
 }

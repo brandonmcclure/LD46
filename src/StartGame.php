@@ -5,7 +5,6 @@ require_once 'strings.php';
 require_once 'string.php';
 require_once 'GameState.php';
 
-echo("The game starts");
 $newGameState = new GameState();
 
 session_start();
@@ -26,7 +25,9 @@ E;
 
 echo $outHTML;
 ?>
-<?php include("AdvanceStateButton.php"); ?>
+<?php $buttonTitle = "Investigate the lifeform"; include("AdvanceStateButton.php"); ?>
+<?php $buttonTitle = "Disable the ships alarms to allow you to go back to sleep"; include("AdvanceStateButton.php"); ?>
+
 <?php include("jumbotronHeader.php"); ?>
 
 <?php include("footer.php"); ?>
