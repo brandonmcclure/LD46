@@ -1,5 +1,5 @@
 <?php
-require 'Models/RandomEvent.php';
+require 'RandomEvent.php';
 interface RandomEventsRepositoryInterface
 {
     public function GetRandomEvent();
@@ -15,7 +15,7 @@ class RandomEventsHardcodedRepository implements RandomEventsRepositoryInterface
     }
     public function GetRandomEvent(){
         $m = sizeof($this->RandomEvent);
-        $i = rand(0,$m);
+        $i = rand(0,$m-1);
         return($this->RandomEvent[$i]);
     }
 }

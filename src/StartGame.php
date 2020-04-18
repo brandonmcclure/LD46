@@ -1,18 +1,32 @@
+<?php include("header.php"); ?>
+<?php include("jumbotronHeader.php"); ?>
 <?php 
-require 'repositories/strings.php';
-require 'Models/string.php';
-require 'Models/GameState.php';
+require_once 'strings.php';
+require_once 'string.php';
+require_once 'GameState.php';
 
 echo("The game starts");
-$gameState = new GameState();
+$newGameState = new GameState();
+
+session_start();
+
+if (isset($_SESSION['gameState'])){
+    unset($_SESSION['gameState']);
+}
+
+$_SESSION['gameState'] = $newGameState;
+
 
 $stringRepo = new StringHardcodedRepository;
-echo "{$stringRepo->find("IntroText")}";
+$outHTML = $stringRepo->find("IntroText");
+$outHTML = <<<E
+$outHTML
+<br><br>
+E;
 
+echo $outHTML;
 ?>
+<?php include("AdvanceStateButton.php"); ?>
+<?php include("jumbotronHeader.php"); ?>
 
-<!-- https://stackoverflow.com/questions/871858/php-pass-variable-to-next-page -->
-<form action="Controllers/state.php" method="post">
-<input type="hidden" name="previousState" value=$gameState>
-<input type="submit" value="advance state">
-</form>
+<?php include("footer.php"); ?>

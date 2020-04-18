@@ -14,4 +14,10 @@ class RandomEvent{
     {
         return $this->eventDescription;
     }
+
+    public function Render(){
+        return <<<e
+        $this->eventDescription
+e;
+    }
 }
