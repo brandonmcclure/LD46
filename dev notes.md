@@ -17,3 +17,12 @@ Had an idea that rips off of Seedship for android and my current fav No Mans Sky
 # 2020.04.18
 ## 12:38pm
 Basics for a state machine and repositories to get strings and random events. I am still torn between the last 2 ideas, but I think this is a good foundation. Coming from .net this seems to be a pretty easy transition although right now my app is only bouncing between a 2 states, and is throwing errors. :-)
+
+## 11:07 am
+Some good resources I found while trying to make the page prettier
+
+Bootstrap using the jumbotron template: <http://technicalrex.com/2014/10/01/using-bootstrap-and-angularjs-for-a-simple-turn-based-game>
+
+How to use sessions: <http://example.preinheimer.com/sessobj.php>
+
+general tips: <https://24ways.org/2012/how-to-make-your-site-look-half-decent/>
