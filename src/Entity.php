@@ -1,7 +1,7 @@
 <?php
 class Entity
 {
-    private $_name = 'The creature';
+    private $_EntityName = 'The creature';
     private $_HasBeenNamed = false;
     private $_foodType;
     public function __construct($foodType)
@@ -10,7 +10,7 @@ class Entity
     }
     public function NameCreature($newName)
     {
-        $this->_name = $newName;
+        $this->_EntityName = $newName;
     }
 
     public function get_HasBeenNamed()
@@ -19,22 +19,30 @@ class Entity
     }
 
     /**
-     * Get the value of _name
+     * Get the value of _EntityName
      */
-    public function get_name()
+    public function get_EntityName()
     {
-        return $this->_name;
+        return $this->_EntityName;
     }
 
-    public function set_name(...$_name)
+    public function set_EntityName(...$_EntityName)
     {
-        if (isset($_name)) {
-            $this->_name = $_name;
+        if ($_EntityName & isset($_EntityName)) {
+            $this->_EntityName = $_EntityName[0];
             
         }
 
         $this->_HasBeenNamed = true;
-        
+
         return $this;
+    }
+
+    public function RenderEntityStatus(){
+        $s = <<<e
+        <br>
+    $this->_EntityName is all good.<br>
+e;
+        return($s);
     }
 }

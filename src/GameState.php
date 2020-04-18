@@ -42,8 +42,8 @@ class GameState{
         $this->currentState = 1;
         $randoEvent = $this->RandomEventsRepository->GetRandomEvent();
         echo($randoEvent->Render());
-        $x = 0;
-        $y = $x;
+        
+        echo($this->gameEntity->RenderEntityStatus());
     }
 
     public function EnterDeathState(){
@@ -96,7 +96,7 @@ class GameState{
      */ 
     public function getGameEntityName()
     {
-        return $this->gameEntity->get_name();
+        return $this->gameEntity->get_EntityName();
     }
 
     /**
@@ -116,17 +116,22 @@ e;
         $buttonTitle = "Don't give IT a name and continue traveling"; 
         $Action = "CharacterNaming_NoName";
         include("AdvanceStateButton.php"); 
-
+$s = <<<e
+<form action="AdvanceStateButton.php" method="get">
+Creature Name: <input type="text" name="name"><br>
+<input type="submit">
+</form>
+e;
         $buttonTitle = "Lets give it a name"; 
         $Action = "CharacterNaming_GiveItAName";
         include("AdvanceStateButton.php"); 
     }
 
     public function CharacterNaming_GiveItAName($newName){
-            $this->gameEntity->set_name($newName);
+            $this->gameEntity->set_EntityName($newName);
     }
 
     public function CharacterNaming_NoName(){
-        $this->gameEntity->set_name();
+        $this->gameEntity->set_EntityName();
     }
 }
