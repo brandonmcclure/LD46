@@ -13,3 +13,7 @@ Maybe you are a vet and you need to keep "it" alive, but all you have is a sillo
 
 
 Had an idea that rips off of Seedship for android and my current fav No Mans Sky. You have to keep a ship alive over a long journey. would be text based. Think of a organic starship that could grow/evolve as you go, or you could totally kill it. 
+
+# 2020.04.18
+## 12:38pm
+Basics for a state machine and repositories to get strings and random events. I am still torn between the last 2 ideas, but I think this is a good foundation. Coming from .net this seems to be a pretty easy transition although right now my app is only bouncing between a 2 states, and is throwing errors. :-)
