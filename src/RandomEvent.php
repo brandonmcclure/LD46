@@ -4,11 +4,13 @@ class RandomEvent{
 
     private $eventType;
     private $eventDescription;
+    private $foodTypeAvailable;
 
 
-    public function __construct ($eventType, $eventDescription){
+    public function __construct ($eventType, $eventDescription, $foodTypeAvailable){
         $this->eventDescription = $eventDescription;
         $this->eventType = $eventType;
+        $this->foodTypeAvailable = $foodTypeAvailable;
     }
 
 

@@ -1,12 +1,19 @@
 <?php
 require_once 'Entity.php';
+require_once 'foodTypes.php';
+
 class EntityRepository
 {
     protected $Entities = array();
-
     public function __construct()
     {
-        $this->Entities = array(new Entity("Metal"), new Entity("Space Plankton"));
+        
+
+        $FoodTypeRepository = $_SESSION['FoodTypeRepository'];
+        $this->Entities = array(
+            new Entity($FoodTypeRepository->GetFoodType("Metal")),
+            new Entity($FoodTypeRepository->GetFoodType("Space Plankton"))
+        );
     }
     public function GetRandomEntity(){
         $m = sizeof($this->Entities);

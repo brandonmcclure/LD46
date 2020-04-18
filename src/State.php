@@ -4,7 +4,6 @@
 <?php
 require_once 'GameState.php';
 session_start();
-
 $previousStateObj = $_SESSION['gameState'];
 $prevStateEnum = $previousStateObj->getCurrentState();
 $Action = null;
@@ -22,13 +21,17 @@ if($Action == "EasyOut"){
 }elseif($Action == "CharacterNaming_NoName"){
     $_SESSION['gameState']->CharacterNaming_NoName();
 }elseif($Action == "CharacterNaming_GiveItAName"){
-    $s = <<<e
-    
-
-e;
-    echo($s);
-    $_SESSION['gameState']->CharacterNaming_GiveItAName("myName");
+    if(isset($_GET["action"])){
+        $myName = $_GET["CharacterName"];
+    }
+    $_SESSION['gameState']->CharacterNaming_GiveItAName($myName);
+}elseif($Action == "FeedingEvent"){
+    if(isset($_GET["action"])){
+        $myName = $_GET["CharacterName"];
+    }
 }
+
+
 
 
 if($previousStateObj->getEntityLifeForce() <= 0){
@@ -50,6 +53,12 @@ if ($prevStateEnum == 1){
 <?php 
     $buttonTitle = "Continue traveling"; 
     $Action = "MoveOnToNextEvent";
+    include("AdvanceStateButton.php"); 
+?>
+
+<?php 
+    $buttonTitle = "Search for food"; 
+    $Action = "FeedingEvent";
     include("AdvanceStateButton.php"); 
 ?>
 

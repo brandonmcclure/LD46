@@ -23,5 +23,5 @@
             <li role="presentation"><a href="https://github.com/brandonmcclure/LD46">source code</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project name</h3>
+        <h3 class="text-muted">Ludam Dare 46 - Theme 'Keep it alive'</h3>
         </div>

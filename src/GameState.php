@@ -2,10 +2,14 @@
 require_once 'RandomEvents.php';
 require_once 'Entities.php';
 
+// This is really just here for me to keep track of what the game state IDs are. I want a dictionary<int><string> to hold this but did not bother figuring out how to do that.
 abstract class ValidGameStates
 {
     const Begining = 0;
     const RandomEventLoop = 1;
+    const CreatureRenaming = 2;
+    const CreatureFeeding = 3;
+    const Death = 99;
 }
 
 class GameState{
@@ -16,19 +20,24 @@ class GameState{
     private $NumberOfTurnsTaken = 0;
     private $isDebugMode = False;
     private $gameEntity;
+    private $currentEvent;
 
     public function __construct (...$gameState){
         if($gameState){
-            $x = 0;
-            $y = $x;
             $this->currentState = $gameState;
         }
         else{
             $this->currentState = 0;
-            $this->RandomEventsRepository = new RandomEventsHardcodedRepository();
-            $entityRepo = new EntityRepository();
-            $this->gameEntity = $entityRepo->GetRandomEntity();
+            
         }
+    }
+
+    public function InitRandomEventRepo(){
+        $this->RandomEventsRepository = new RandomEventsHardcodedRepository();
+    }
+    public function InitEntity(){
+        $entityRepo = new EntityRepository();
+        $this->gameEntity = $entityRepo->GetRandomEntity();
     }
 
     public function getCurrentState()
@@ -38,10 +47,11 @@ class GameState{
 
     public Function EnterRandomEventState(){
         $this->NumberOfTurnsTaken = $this->NumberOfTurnsTaken+1;
-        $this->EntityLifeForce = $this->EntityLifeForce -1;
+        $this->gameEntity->Decrement_Hunger();
+        $this->gameEntity->Decrement_LifeForce();
         $this->currentState = 1;
-        $randoEvent = $this->RandomEventsRepository->GetRandomEvent();
-        echo($randoEvent->Render());
+        $this->currentEvent = $this->RandomEventsRepository->GetRandomEvent();
+        echo($this->currentEvent->Render());
         
         echo($this->gameEntity->RenderEntityStatus());
     }
@@ -58,7 +68,7 @@ class GameState{
      */ 
     public function getEntityLifeForce()
     {
-        return $this->EntityLifeForce;
+        return $this->gameEntity->get_LifeForce();
     }
 
     /**
@@ -117,14 +127,14 @@ e;
         $Action = "CharacterNaming_NoName";
         include("AdvanceStateButton.php"); 
 $s = <<<e
-<form action="AdvanceStateButton.php" method="get">
-Creature Name: <input type="text" name="name"><br>
-<input type="submit">
+<br><br>
+<form action="State.php" method="get">
+Creature Name: <input type="text" name="CharacterName"><br>
+<input type="hidden" name="action" value="CharacterNaming_GiveItAName">
+<input type="submit" value="Rename the creature">
 </form>
 e;
-        $buttonTitle = "Lets give it a name"; 
-        $Action = "CharacterNaming_GiveItAName";
-        include("AdvanceStateButton.php"); 
+        echo($s);
     }
 
     public function CharacterNaming_GiveItAName($newName){
