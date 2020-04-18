@@ -82,4 +82,51 @@ class GameState{
 
         return $this;
     }
+
+    /**
+     * Get the value of NumberOfTurnsTaken
+     */ 
+    public function getNumberOfTurnsTaken()
+    {
+        return $this->NumberOfTurnsTaken;
+    }
+
+    /**
+     * Get the name of the creature
+     */ 
+    public function getGameEntityName()
+    {
+        return $this->gameEntity->get_name();
+    }
+
+    /**
+     * Get the name of the creature
+     */ 
+    public function getGameEntityIsNamed()
+    {
+        return $this->gameEntity->get_HasBeenNamed();
+    }
+
+    public function NameCreatureEvent(){
+        $s = <<<e
+        You have been traveling with the creature for some time now, perhaps you should give it a name.
+e;
+        echo($s);
+
+        $buttonTitle = "Don't give IT a name and continue traveling"; 
+        $Action = "CharacterNaming_NoName";
+        include("AdvanceStateButton.php"); 
+
+        $buttonTitle = "Lets give it a name"; 
+        $Action = "CharacterNaming_GiveItAName";
+        include("AdvanceStateButton.php"); 
+    }
+
+    public function CharacterNaming_GiveItAName($newName){
+            $this->gameEntity->set_name($newName);
+    }
+
+    public function CharacterNaming_NoName(){
+        $this->gameEntity->set_name();
+    }
 }

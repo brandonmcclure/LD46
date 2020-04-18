@@ -19,6 +19,10 @@ if($Action == "EasyOut"){
     exit;
 }elseif($Action == "StartGame"){
     $_SESSION['gameState']->EnterRandomEventState();
+}elseif($Action == "CharacterNaming_NoName"){
+    $_SESSION['gameState']->CharacterNaming_NoName();
+}elseif($Action == "CharacterNaming_GiveItAName"){
+    $_SESSION['gameState']->CharacterNaming_GiveItAName("myName");
 }
 
 
@@ -27,7 +31,12 @@ if($previousStateObj->getEntityLifeForce() <= 0){
     exit;
 }
 if ($prevStateEnum == 1){
-    $_SESSION['gameState']->EnterRandomEventState();
+    if(!$_SESSION['gameState']->getGameEntityIsNamed() and $_SESSION['gameState']->getNumberOfTurnsTaken() > 0 ){
+        $_SESSION['gameState']->NameCreatureEvent();
+    }
+    else{
+        $_SESSION['gameState']->EnterRandomEventState();
+    }
 }
 
 
