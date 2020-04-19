@@ -17,7 +17,7 @@ variables:
   vmImageName: 'ubuntu-latest'
 
   # Environment name
-  environmentName: ''
+  environmentName: 'prd'
 
   # Root folder under which your composer.json file is available.
   rootFolder: $(System.DefaultWorkingDirectory)
