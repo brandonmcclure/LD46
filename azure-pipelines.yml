@@ -1,4 +1,5 @@
 # PHP as Linux Web App on Azure
+
 # Build, package and deploy your PHP project to Azure Linux Web App.
 # Add steps that run tests and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/php
@@ -43,13 +44,13 @@ stages:
       displayName: 'Use PHP version $(phpVersion)'
     
     - script: composer install --no-interaction --prefer-dist
-      workingDirectory: $(rootFolder)
+      workingDirectory: $(rootFolder)/src
       displayName: 'Composer install'
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
-        rootFolderOrFile: '$(rootFolder)'
+        rootFolderOrFile: '$(rootFolder)/src'
         includeRootFolder: false
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
@@ -78,3 +79,21 @@ stages:
               azureSubscription: $(azureSubscription)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+
+  - job:
+    steps:
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        artifactName: 'drop'
+        targetPath: '$(Pipeline.Workspace)'
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Pay-As-You-Go (8ca5abe6-ced4-456c-b60b-7baf7e8d44eb)'
+        appType: 'webApp'
+        WebAppName: 'LD46Project'
+        deployToSlotOrASE: true
+        ResourceGroupName: 'LD46Project'
+        SlotName: 'production'
+        packageForLinux: "$(Pipeline.Workspace)/**/*.zip"
