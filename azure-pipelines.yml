@@ -44,13 +44,13 @@ stages:
       displayName: 'Use PHP version $(phpVersion)'
     
     - script: composer install --no-interaction --prefer-dist
-      workingDirectory: $(rootFolder)\src
+      workingDirectory: $(rootFolder)/src
       displayName: 'Composer install'
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
-        rootFolderOrFile: '$(rootFolder)\src'
+        rootFolderOrFile: '$(rootFolder)/src'
         includeRootFolder: false
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
