@@ -7,10 +7,6 @@ require_once 'GameState.php';
 require_once 'Entity.php';
 require_once 'foodType.php';
 
-// Make stuff to take care of the incomplete classes in _SESSION
-// This makes me feel dirty, like I am going about this the wrong way...
-//$garbageFoodType = new foodType("a");
-//$garbage = new Entity($garbageFoodType);
 
 $FoodTypeRepository = new FoodTypeRepository();
 $newGameState = new GameState();

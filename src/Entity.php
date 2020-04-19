@@ -111,4 +111,16 @@ e;
             $this->_HungerLevel = $this->_HungerLevel-1;
         }
     }
+
+    /**
+     * Get the value of _foodType
+     */ 
+    public function get_foodType()
+    {
+        return $this->_foodType;
+    }
+
+    public function Feed(){
+        $this->_HungerLevel = $this->_HungerLevel +2;
+    }
 }

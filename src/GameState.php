@@ -144,4 +144,21 @@ e;
     public function CharacterNaming_NoName(){
         $this->gameEntity->set_EntityName();
     }
+
+    public function LookForFood(){
+        $chanceOfFindingFood = .5;
+
+        $eventFoodType = $this->currentEvent->getFoodTypeAvailable();
+        $entityFoodType = $this->gameEntity->get_foodType();
+
+        if($eventFoodType == $entityFoodType){
+            $rando = mt_rand() / mt_getrandmax();
+            if($rando <$chanceOfFindingFood){
+                $this->gameEntity->Feed();
+            }
+        }
+        else{
+            $this->gameEntity->Decrement_LifeForce();
+        }
+    }
 }

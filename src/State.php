@@ -26,9 +26,7 @@ if($Action == "EasyOut"){
     }
     $_SESSION['gameState']->CharacterNaming_GiveItAName($myName);
 }elseif($Action == "FeedingEvent"){
-    if(isset($_GET["action"])){
-        $myName = $_GET["CharacterName"];
-    }
+    $_SESSION['gameState']->LookForFood();
 }
 
 

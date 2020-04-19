@@ -32,4 +32,12 @@ e;
     {
         return $this->eventType;
     }
+
+    /**
+     * Get the value of foodTypeAvailable
+     */ 
+    public function getFoodTypeAvailable()
+    {
+        return $this->foodTypeAvailable;
+    }
 }
