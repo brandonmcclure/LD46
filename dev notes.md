@@ -26,3 +26,10 @@ Bootstrap using the jumbotron template: <http://technicalrex.com/2014/10/01/usin
 How to use sessions: <http://example.preinheimer.com/sessobj.php>
 
 general tips: <https://24ways.org/2012/how-to-make-your-site-look-half-decent/>
+
+## 7:29pm
+Got the mechanics for feeding the creature working and cleaned up the look (and the code a bit). Started working on how I will deploy, attempting through Azure. 
+
+I need to expand the different types of food you can give, and add some more events that will be a threat to the creature. some extra attributes on the creature would be good as well. I think a relationship indicator for you. 
+
+Stretch goals would be to setup some more randomness in which strings are selected/how descriptions are given. Also some better css/graphic design.

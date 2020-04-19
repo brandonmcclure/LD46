@@ -22,3 +22,17 @@
     background-color: #fef049;
     border-color: #ffd663;
 }
+a{
+    color: aquamarine;
+    text-decoration: none;
+  text-transform: uppercase;
+}
+.jumbotron{
+    background-image: url("/img/space_256.png");
+    background-repeat: repeat-y;
+    background-repeat: repeat-x;
+}
+.myText{
+    color: white;
+    a:link
+}
