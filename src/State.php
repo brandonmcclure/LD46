@@ -37,7 +37,7 @@ if($previousStateObj->getEntityLifeForce() <= 0){
     exit;
 }
 if ($prevStateEnum == 1){
-    if(!$_SESSION['gameState']->getGameEntityIsNamed() and $_SESSION['gameState']->getNumberOfTurnsTaken() > 0 ){
+    if(!$_SESSION['gameState']->getGameEntityIsNamed() && $_SESSION['gameState']->getNumberOfTurnsTaken() > 0 ){
         $_SESSION['gameState']->NameCreatureEvent();
         exit;
     }

@@ -16,7 +16,6 @@ class GameState{
 
     private $currentState;
     private $RandomEventsRepository;
-    private $EntityLifeForce = 10;
     private $NumberOfTurnsTaken = 0;
     private $isDebugMode = False;
     private $gameEntity;
@@ -51,15 +50,15 @@ class GameState{
         $this->gameEntity->Decrement_LifeForce();
         $this->currentState = 1;
         $this->currentEvent = $this->RandomEventsRepository->GetRandomEvent();
-        echo($this->currentEvent->Render());
+        echo $this->currentEvent->Render();
         
-        echo($this->gameEntity->RenderEntityStatus());
+        echo $this->gameEntity->RenderEntityStatus();
     }
 
     public function EnterDeathState(){
         $this->currentState = 99;
-        echo("You loose, you lasted {$this->NumberOfTurnsTaken} turns. Try again?");
-        echo("<br><br><a href=ResetSession.php>Yes</a>");
+        echo "You loose, you lasted {$this->NumberOfTurnsTaken} turns. Try again?";
+        echo "<br><br><a href=ResetSession.php>Yes</a>";
     }
 
 
@@ -121,7 +120,7 @@ class GameState{
         $s = <<<e
         You have been traveling with the creature for some time now, perhaps you should give it a name.
 e;
-        echo($s);
+        echo $s;
 
         $buttonTitle = "Don't give IT a name and continue traveling"; 
         $Action = "CharacterNaming_NoName";
@@ -134,7 +133,7 @@ Creature Name: <input type="text" name="CharacterName"><br>
 <input type="submit" value="Rename the creature">
 </form>
 e;
-        echo($s);
+        echo $s;
     }
 
     public function CharacterNaming_GiveItAName($newName){
