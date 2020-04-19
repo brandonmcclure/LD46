@@ -1,1 +1,1 @@
-<div class="jumbotron myText">
+<div class="jumbotron myText myBackground">

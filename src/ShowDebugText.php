@@ -4,5 +4,7 @@ require_once 'GameState.php';
 $curentStateObj = $_SESSION['gameState'];
 
 if ($curentStateObj->getIsDebugMode()) {
-    print_r($curentStateObj);
+    echo "<pre>";
+    echo print_r($curentStateObj);
+     echo "</pre>";
 }

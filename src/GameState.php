@@ -17,7 +17,7 @@ class GameState{
     private $currentState;
     private $RandomEventsRepository;
     private $NumberOfTurnsTaken = 0;
-    private $isDebugMode = False;
+    private $isDebugMode = true;
     private $gameEntity;
     private $currentEvent;
 

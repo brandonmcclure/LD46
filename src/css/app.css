@@ -28,6 +28,9 @@ a{
   text-transform: uppercase;
 }
 .jumbotron{
+    font-size: 21px;
+}
+.myBackground{
     background-image: url("/img/space_256.png");
     background-repeat: repeat-y;
     background-repeat: repeat-x;

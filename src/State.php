@@ -11,7 +11,7 @@ if(isset($_GET["action"])){
     $Action = $_GET["action"];
 }
 
-//You choose to ignore the creature from the start
+# These are the results for each action
 if($Action == "EasyOut"){
     include("EasyOut.php");
     $_SESSION['gameState']->EnterDeathState();
@@ -31,13 +31,14 @@ if($Action == "EasyOut"){
 
 
 
-
+# high level control of the gamestate. Start, loop, exit
 if($previousStateObj->getEntityLifeForce() <= 0){
     $_SESSION['gameState']->EnterDeathState();
     exit;
 }
 if ($prevStateEnum == 1){
-    if(!$_SESSION['gameState']->getGameEntityIsNamed() && $_SESSION['gameState']->getNumberOfTurnsTaken() > 0 ){
+    # Name the creature after the 5th turn
+    if(!$_SESSION['gameState']->getGameEntityIsNamed() && $_SESSION['gameState']->getNumberOfTurnsTaken() > 5 ){
         $_SESSION['gameState']->NameCreatureEvent();
         exit;
     }
@@ -48,6 +49,8 @@ if ($prevStateEnum == 1){
 
 
 ?>
+
+<!-- This section is generated as a list of actions that can be called. -->
 <?php 
     $buttonTitle = "Continue traveling"; 
     $Action = "MoveOnToNextEvent";

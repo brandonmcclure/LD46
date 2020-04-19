@@ -51,6 +51,5 @@ echo $outHTML;
     include("AdvanceStateButton.php"); 
 ?>
 
-<?php include("jumbotronHeader.php"); ?>
-
+<?php include("jumbotronFooter.php"); ?>
 <?php include("footer.php"); ?>
