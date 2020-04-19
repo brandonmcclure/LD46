@@ -96,4 +96,4 @@ stages:
         deployToSlotOrASE: true
         ResourceGroupName: 'LD46Project'
         SlotName: 'production'
-        packageForLinux: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+        packageForLinux: "$(Pipeline.Workspace)/drop/$(Build.BuildId).zip"
