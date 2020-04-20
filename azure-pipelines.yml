@@ -97,3 +97,8 @@ stages:
         ResourceGroupName: 'LD46Project'
         SlotName: 'production'
         packageForLinux: "$(Pipeline.Workspace)/**/*.zip"
+    - task: AzureAppServiceManage@0
+      inputs:
+        azureSubscription: 'Pay-As-You-Go (8ca5abe6-ced4-456c-b60b-7baf7e8d44eb)'
+        Action: 'Restart Azure App Service'
+        WebAppName: 'LD46Project'
