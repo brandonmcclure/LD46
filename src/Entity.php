@@ -1,7 +1,7 @@
 <?php
 class Entity
 {
-    private $_EntityName = 'The creature';
+    private $_EntityName = 'the creature';
     private $_HasBeenNamed = false;
     private $_foodType;
     private $_LifeForce = 10;
