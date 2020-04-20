@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'RandomEvent.php';
 require_once 'foodTypes.php';
 

@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 require_once 'strings.php';
 require_once 'string.php';
 require_once 'GameState.php';

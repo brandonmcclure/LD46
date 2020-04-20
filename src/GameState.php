@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'RandomEvents.php';
 require_once 'Entities.php';
 
