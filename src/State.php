@@ -7,11 +7,7 @@ if(!isset($_SESSION))
     { 
         session_start(); 
     } 
-echo "what is in the _SESSION?";
-echo "<pre>";
-    echo print_r($_SESSION);
-     echo "</pre>";
-     echo "thats it";
+
 $previousStateObj = $_SESSION['gameState'];
 $prevStateEnum = $previousStateObj->getCurrentState();
 $Action = null;
@@ -19,13 +15,20 @@ if(isset($_GET["action"])){
     $Action = $_GET["action"];
 }
 
+echo $previousStateObj->getTextFromPreviousState();
+
 # These are the results for each action
 if($Action == "EasyOut"){
     include("EasyOut.php");
     $_SESSION['gameState']->EnterDeathState();
     exit;
 }elseif($Action == "StartGame"){
-    $_SESSION['gameState']->EnterRandomEventState();
+    $_SESSION['gameState']->InitEntity();
+    $buttonTitle = "Begin traveling"; 
+    $Action = "";
+    include("AdvanceStateButton.php");
+    
+    exit;
 }elseif($Action == "CharacterNaming_NoName"){
     $_SESSION['gameState']->CharacterNaming_NoName();
 }elseif($Action == "CharacterNaming_GiveItAName"){
@@ -35,6 +38,10 @@ if($Action == "EasyOut"){
     $_SESSION['gameState']->CharacterNaming_GiveItAName($myName);
 }elseif($Action == "FeedingEvent"){
     $_SESSION['gameState']->LookForFood();
+}elseif($Action == "NotFlee"){
+    $_SESSION['gameState']->NotFleeEvent();
+}elseif($Action == "Flee"){
+    $_SESSION['gameState']->FleeEvent();
 }
 
 
@@ -55,10 +62,9 @@ if ($prevStateEnum == 1){
     }
 }
 
-
 ?>
 
-<!-- This section is generated as a list of actions that can be called. -->
+<!-- This section is generated as a list of actions that can be called. 
 <?php 
     $buttonTitle = "Continue traveling"; 
     $Action = "MoveOnToNextEvent";
@@ -70,6 +76,6 @@ if ($prevStateEnum == 1){
     $Action = "FeedingEvent";
     include("AdvanceStateButton.php"); 
 ?>
-
+-->
 <?php include("jumbotronFooter.php"); ?>
 <?php include("footer.php"); ?>

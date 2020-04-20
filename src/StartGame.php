@@ -2,6 +2,7 @@
 <?php include("jumbotronHeader.php"); ?>
 <?php 
 
+
 $stringRepo = new StringHardcodedRepository;
 $outHTML = $stringRepo->find("IntroText");
 $outHTML = <<<E

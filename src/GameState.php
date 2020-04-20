@@ -17,9 +17,10 @@ class GameState{
     private $currentState;
     private $RandomEventsRepository;
     private $NumberOfTurnsTaken = 0;
-    private $isDebugMode = true;
+    private $isDebugMode = false;
     private $gameEntity;
     private $currentEvent;
+    private $textFromPreviousState;
 
     public function __construct (...$gameState){
         if($gameState){
@@ -37,6 +38,12 @@ class GameState{
     public function InitEntity(){
         $entityRepo = new EntityRepository();
         $this->gameEntity = $entityRepo->GetRandomEntity();
+
+        echo <<<e
+You look out the porthole to inspect the creature, {$this->gameEntity->RenderGameEntityDescription()}
+e;
+
+$this->currentState = 1;
     }
 
     public function getCurrentState()
@@ -45,14 +52,17 @@ class GameState{
     }
 
     public Function EnterRandomEventState(){
+        
         $this->NumberOfTurnsTaken = $this->NumberOfTurnsTaken+1;
         $this->gameEntity->Decrement_Hunger();
         $this->gameEntity->Decrement_LifeForce();
         $this->currentState = 1;
         $this->currentEvent = $this->RandomEventsRepository->GetRandomEvent();
-        echo $this->currentEvent->Render();
+        $this->currentEvent->Render();
         
         echo $this->gameEntity->RenderEntityStatus();
+
+        $this->currentEvent->RenderActions();
     }
 
     public function EnterDeathState(){
@@ -145,19 +155,64 @@ e;
     }
 
     public function LookForFood(){
-        $chanceOfFindingFood = .5;
+     
 
         $eventFoodType = $this->currentEvent->getFoodTypeAvailable();
         $entityFoodType = $this->gameEntity->get_foodType();
+        $foodTypeRepo = $_SESSION["FoodTypeRepository"];
+        if($entityFoodType == $foodTypeRepo->GetFoodType("None")){
 
-        if($eventFoodType == $entityFoodType){
+        }
+        elseif($eventFoodType == $entityFoodType){
             $rando = mt_rand() / mt_getrandmax();
-            if($rando <$chanceOfFindingFood){
+            if($rando <$foodTypeRepo->GetFoodType($eventFoodType->get_chanceOfFindingFood())){
                 $this->gameEntity->Feed();
+                $this->textFromPreviousState = <<<e
+                The creature eats and is satiated.<br><br>
+e;
             }
         }
         else{
             $this->gameEntity->Decrement_LifeForce();
+            $this->textFromPreviousState = <<<e
+
+The creature attempts to eat but is harmed from your food choice.<br><br>
+e;
         }
+
+
+    }
+
+    /**
+     * Get the value of textFromPreviousState
+     */ 
+    public function getTextFromPreviousState()
+    {
+        return $this->textFromPreviousState;
+    }
+
+    /**
+     * Set the value of textFromPreviousState
+     *
+     * @return  self
+     */ 
+    public function setTextFromPreviousState($textFromPreviousState)
+    {
+        $this->textFromPreviousState = $textFromPreviousState;
+
+        return $this;
+    }
+
+    public function FleeEvent(){
+        echo <<<e
+        You attempt to flee from the {$this->currentEvent->getEventType()} and succeed.
+e;
+    }
+
+    public function NotFleeEvent(){
+        echo <<<e
+        You do not attempt to flee from the {$this->currentEvent->getEventType()} and face their wrath. {$this->getGameEntityName()} recoils from the pain.
+e;
+$this->gameEntity->Decrement_LifeForce();
     }
 }
