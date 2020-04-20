@@ -55,8 +55,8 @@ class Entity
             $hungerStatus = "starving";
         }
         $s = <<<e
-        <br>
-    $this->_EntityName is $hungerStatus.<br>
+        <br />
+    $this->_EntityName is $hungerStatus.<br />
 e;
         return($s);
     }

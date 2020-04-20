@@ -51,7 +51,7 @@ body {
 }
 
 header {
-    height: 75px;
+    height: 100px;
 }
 
 main {
@@ -63,3 +63,23 @@ main {
 footer {
     height: 25px;
 }
+ul.pull-right {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: inline;
+  }
+  
+  li.pull-right {
+    float: left;
+  }
+  
+  li.pull-right a {
+    display: block;
+    color: blue;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }

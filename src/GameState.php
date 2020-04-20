@@ -169,17 +169,18 @@ e;
             $rando = mt_rand() / mt_getrandmax();
             if($rando <$foodTypeRepo->GetFoodType($eventFoodType->get_chanceOfFindingFood())){
                 $this->gameEntity->Feed();
-                $this->textFromPreviousState = <<<e
+                $s = <<<e
                 The creature eats and is satiated.<br><br>
 e;
+                $this->setTextFromPreviousState ($s);
             }
         }
         else{
             $this->gameEntity->Decrement_LifeForce();
-            $this->textFromPreviousState = <<<e
-
-The creature attempts to eat but is harmed from your food choice.<br><br>
+            $s =  <<<e
+            The creature attempts to eat but is harmed from your food choice.<br><br>
 e;
+            $this->setTextFromPreviousState($s);
         }
 
 
