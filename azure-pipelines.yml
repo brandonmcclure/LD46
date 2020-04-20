@@ -62,11 +62,40 @@ stages:
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'Upload package'
       artifact: drop
-
-- stage: Deploy
+- stage: DeployDEV
   displayName: 'Deploy Web App'
   dependsOn: Build
   condition: succeeded()
+  jobs:
+  - job:
+    steps:
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        artifactName: 'drop'
+        targetPath: '$(Pipeline.Workspace)'
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Pay-As-You-Go (8ca5abe6-ced4-456c-b60b-7baf7e8d44eb)'
+        appType: 'webApp'
+        WebAppName: 'LD46ProjectDEV'
+        deployToSlotOrASE: true
+        ResourceGroupName: 'LD46Project'
+        SlotName: 'production'
+        packageForLinux: "$(Pipeline.Workspace)/**/*.zip"
+  - job:
+    steps:
+    - task: AzureAppServiceManage@0
+      displayName: Restart App Service
+      inputs:
+        azureSubscription: 'Pay-As-You-Go (8ca5abe6-ced4-456c-b60b-7baf7e8d44eb)'
+        Action: 'Restart Azure App Service'
+        WebAppName: 'LD46ProjectDEV'
+- stage: DeployPRD
+  displayName: 'Deploy Web App'
+  dependsOn: Build
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   jobs:
   - job:
     steps:
@@ -85,12 +114,6 @@ stages:
         ResourceGroupName: 'LD46Project'
         SlotName: 'production'
         packageForLinux: "$(Pipeline.Workspace)/**/*.zip"
-
-- stage: ResetApp
-  displayName: 'Restart Web App'
-  dependsOn: Deploy
-  condition: succeeded()
-  jobs:
   - job:
     steps:
     - task: AzureAppServiceManage@0
@@ -99,3 +122,4 @@ stages:
         azureSubscription: 'Pay-As-You-Go (8ca5abe6-ced4-456c-b60b-7baf7e8d44eb)'
         Action: 'Restart Azure App Service'
         WebAppName: 'LD46Project'
+
