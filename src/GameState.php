@@ -217,4 +217,8 @@ e;
 e;
 $this->gameEntity->Decrement_LifeForce();
     }
+
+    public function GetString(){
+        
+    }
 }

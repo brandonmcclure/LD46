@@ -67,4 +67,8 @@ e;
     {
         return $this->foodTypeAvailable;
     }
+
+    public function GetString(){
+        
+    }
 }

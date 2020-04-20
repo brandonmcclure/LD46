@@ -25,4 +25,8 @@ class foodType
     {
         return $this->_chanceOfFindingFood;
     }
+
+    public function GetString(){
+        
+    }
 }

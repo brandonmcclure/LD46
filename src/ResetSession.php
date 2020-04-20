@@ -6,4 +6,4 @@ if(!isset($_SESSION))
 $_SESSION = array();
 session_destroy();
 
-header( "refresh:1;url=StartGame.php" );
+header( "refresh:.01;url=StartGame.php" );
