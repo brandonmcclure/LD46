@@ -87,11 +87,11 @@ class RandomEventsHardcodedRepository
             if ($a != $randoEventActionType) {
                 continue;
             }
-            $newArray += $e;
+            $newArray[]=$e;
         }
         $m = sizeof($newArray);
         $i = rand(0, $m - 1);
-        return ($this->newArray[$i]);
+        return ($newArray[$i]);
     }
     /**
      * getRandomWeightedElement()

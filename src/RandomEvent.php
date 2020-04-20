@@ -45,6 +45,12 @@ class RandomEvent
         $Action = "NotFlee";
         include("AdvanceStateButton.php"); 
         }
+        else{
+            $buttonTitle = "Continue traveling";
+            $Action = "MoveOnToNextEvent";
+            include("AdvanceStateButton.php");
+
+            }
     }
     public function Render()
     {

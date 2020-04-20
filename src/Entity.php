@@ -129,25 +129,25 @@ e;
         
         if ($this->_foodType == $_SESSION['FoodTypeRepository']->GetFoodType("Metal")){
             $outString = <<<e
-The creature eats metal
+The creature eats metal.
 e;
         }
 
         if ($this->_foodType == $_SESSION['FoodTypeRepository']->GetFoodType("Space Plankton")){
             $outString = <<<e
-The creature eats Space Plankton
+The creature eats Space Plankton.
 e;
         }
 
         if ($this->_foodType == $_SESSION['FoodTypeRepository']->GetFoodType("Blue Giant Solar Energy")){
             $outString = <<<e
-The creature eats Blue Giant Solar Energy
+The creature eats Blue Giant Solar Energy.
 e;
         }
 
         if ($this->_foodType == $_SESSION['FoodTypeRepository']->GetFoodType("Rock")){
             $outString = <<<e
-The creature eats Rock
+The creature eats Rock.
 e;
         }
         return $outString;
