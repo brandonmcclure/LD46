@@ -28,8 +28,8 @@ $_SESSION['gameState'] = $newGameState;
 
 $_SESSION['gameState']->InitRandomEventRepo();
 $_SESSION['gameState']->InitEntity();
-?>
 
+$t = <<<e
 <html>
 <head>
     <title>Space Whale</title>
@@ -57,3 +57,6 @@ $_SESSION['gameState']->InitEntity();
         </nav>
         <h3 class="text-muted">Ludam Dare 46 - Theme 'Keep it alive'</h3>
         </div>
+e;
+
+echo $t;
