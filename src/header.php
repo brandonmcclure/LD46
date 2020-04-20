@@ -38,26 +38,20 @@ $t = <<<e
     <meta name="description" content="My entry into Ludam Dare 46 - Theme 'Keep it alive'">
     <meta name=" author" content="Brandon McClure Brandonmcclure89@gmail.com">
 
-    
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- Custom styles for this template -->
     <link href="css/app.css" rel="stylesheet">
 </head>
-<body cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center>
+<body text-center>
 <header class="page-header">
-    <div class="inner">
+    <div class="page-header-inner">
       <h3 class="masthead-brand">Ludam Dare 46 - Theme 'Keep it alive'</h3>
-      <nav class="nav nav-masthead justify-content-center">
+      <nav class="justify-content-center">
       <a class="button" href="#">Home</a>
         <a class="button" href="https://github.com/brandonmcclure/LD46">Source Code</a>
       </nav>
     </div>
   </header>
-
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
-
-    
+   
 e;
 
 echo $t;

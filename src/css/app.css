@@ -1,27 +1,3 @@
-/* --- Narrow Jumbotron Styles Go Here --- */
-
-.peg {
-    display: inline-block;
-    width: 1.1em;
-    height: 1.1em;
-    border: 1px solid #937e62;
-    border-radius: 50%;
-    background-color: white;
-    margin: 5px;
-    color: white;
-}
-.r {
-    background-color: #d9534f;
-    border-color: #c9302c;
-}
-.g {
-    background-color: #5cb85c;
-    border-color: #449d44;
-}
-.y {
-    background-color: #fef049;
-    border-color: #ffd663;
-}
 a{
     color: aquamarine;
     text-decoration: none;
@@ -32,8 +8,7 @@ a{
 }
 .myBackground{
     background-image: url("/img/space_256.png");
-    background-repeat: repeat-y;
-    background-repeat: repeat-x;
+    background-repeat: repeat;
 }
 .myText{
     color: white;
@@ -49,7 +24,42 @@ a{
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
   }
-  .wrapper {
+.wrapper {
     display: flex;
     flex-direction: column;
+}
+.text-center{
+    text-align: center;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.masthead-brand{
+    color:black;
+    font-style: bold;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 75px;
+}
+
+main {
+    flex-grow: 4;
+    flex-wrap: wrap;
+
+}
+
+footer {
+    height: 25px;
 }
