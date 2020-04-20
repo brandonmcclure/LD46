@@ -14,5 +14,5 @@ echo <<<e
 e;
 $s = $stringRepo->find("Instructions","ImmersionBreak");
 echo "<p>$s</p>";
-
+include("jumbotronFooter.php");
 include("footer.php"); ?>

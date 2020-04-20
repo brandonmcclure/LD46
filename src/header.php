@@ -29,7 +29,6 @@ if (!isset($_SESSION['gameState'])) {
 }
 
 
-
 $t = <<<e
 <html>
 <head>
@@ -38,27 +37,21 @@ $t = <<<e
     <meta name="description" content="My entry into Ludam Dare 46 - Theme 'Keep it alive'">
     <meta name=" author" content="Brandon McClure Brandonmcclure89@gmail.com">
 
-    
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <!-- Custom styles for this template -->
-    <link href="css/jumbotron-narrow.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container">
-
-    <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-          <li role="presentation" class="active"><a href="/">index</a></li>
-            <li role="presentation" class="active"><a href="/ResetSession.php">Restart game</a></li>
-            <li role="presentation" class="active"><a href="https://github.com/brandonmcclure/LD46">source code</a></li>
+<header class="page-header">
+    <div class="page-header-inner">
+      <h3 class="masthead-brand">Ludam Dare 46 - Theme 'Keep it alive'</h3>
+          <ul class="pull-right">
+          <li class="pull-right"><a href="/">index</a></li>
+            <li class="pull-right"><a href="/ResetSession.php">Restart game</a></li>
+            <li class="pull-right"><a href="https://github.com/brandonmcclure/LD46">source code</a></li>
           </ul>
-        </nav>
-        <h3 class="text-muted">Ludam Dare 46 - Theme 'Keep it alive'</h3>
-        </div>
+    </div>
+  </header>
+   
 e;
 
 echo $t;

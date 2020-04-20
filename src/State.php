@@ -15,7 +15,6 @@ if(isset($_GET["action"])){
     $Action = $_GET["action"];
 }
 
-echo $previousStateObj->getTextFromPreviousState();
 
 # These are the results for each action
 if($Action == "EasyOut"){
@@ -41,9 +40,11 @@ if($Action == "EasyOut"){
     $_SESSION['gameState']->NotFleeEvent();
 }elseif($Action == "Flee"){
     $_SESSION['gameState']->FleeEvent();
+}elseif($Action == "MoveOnToNextEvent"){
+    $previousStateObj->setTextFromPreviousState("");
 }
 
-
+echo $previousStateObj->getTextFromPreviousState();
 
 # high level control of the gamestate. Start, loop, exit
 if($previousStateObj->getEntityLifeForce() <= 0){
