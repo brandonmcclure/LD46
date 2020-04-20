@@ -44,9 +44,12 @@ stages:
       displayName: 'Use PHP version $(phpVersion)'
     
     - script: composer install --no-interaction --prefer-dist
-      workingDirectory: $(rootFolder)/src
+      workingDirectory: 
       displayName: 'Composer install'
-
+    - task: PowerShell@2
+      displayName: Make it all UTF8 - No BOM
+      inputs:
+        filePath: '$(rootFolder)/src/MakeAllUTF8-NoBOM.ps1'
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
@@ -65,21 +68,6 @@ stages:
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - deployment: DeploymentJob
-    pool:
-      vmImage: $(vmImageName)
-    environment: $(environmentName)
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : '
-            inputs:
-              azureSubscription: $(azureSubscription)
-              appName: $(webAppName)
-              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-
   - job:
     steps:
     - task: DownloadPipelineArtifact@2
@@ -97,7 +85,16 @@ stages:
         ResourceGroupName: 'LD46Project'
         SlotName: 'production'
         packageForLinux: "$(Pipeline.Workspace)/**/*.zip"
+
+- stage: ResetApp
+  displayName: 'Restart Web App'
+  dependsOn: Deploy
+  condition: succeeded()
+  jobs:
+  - job:
+    steps:
     - task: AzureAppServiceManage@0
+      displayName: Restart App Service
       inputs:
         azureSubscription: 'Pay-As-You-Go (8ca5abe6-ced4-456c-b60b-7baf7e8d44eb)'
         Action: 'Restart Azure App Service'
