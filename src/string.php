@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class GameString
 {
     protected $_name;

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once 'Entity.php';
 require_once 'foodTypes.php';
 

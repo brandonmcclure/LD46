@@ -1,5 +1,5 @@
-
-<div class="a">
+﻿
+<div >
     <div class="col-lg-6">
     </div>
     <div class="footer myText">

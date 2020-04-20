@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class Entity
 {
     private $_EntityName = 'The creature';
