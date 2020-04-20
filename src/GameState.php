@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once 'RandomEvents.php';
 require_once 'Entities.php';
 
@@ -17,7 +17,7 @@ class GameState{
     private $currentState;
     private $RandomEventsRepository;
     private $NumberOfTurnsTaken = 0;
-    private $isDebugMode = false;
+    private $isDebugMode = true;
     private $gameEntity;
     private $currentEvent;
     private $textFromPreviousState;
