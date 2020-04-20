@@ -3,7 +3,10 @@
 
 <?php
 require_once 'GameState.php';
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 echo "what is in the _SESSION?";
 echo "<pre>";
     echo print_r($_SESSION);
