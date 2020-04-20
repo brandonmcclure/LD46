@@ -44,11 +44,8 @@ $t = <<<e
     <!-- Custom styles for this template -->
     <link href="css/app.css" rel="stylesheet">
 </head>
-
-<body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-    <header class="masthead mb-auto page-header">
+<body cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center>
+<header class="page-header">
     <div class="inner">
       <h3 class="masthead-brand">Ludam Dare 46 - Theme 'Keep it alive'</h3>
       <nav class="nav nav-masthead justify-content-center">
@@ -57,6 +54,10 @@ $t = <<<e
       </nav>
     </div>
   </header>
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+
+    
 e;
 
 echo $t;

@@ -1,1 +1,1 @@
-<main role="main" class="inner cover myText myBackground">
+<main role="main" class="myText myBackground wrapper">

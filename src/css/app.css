@@ -49,3 +49,7 @@ a{
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
   }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+}
