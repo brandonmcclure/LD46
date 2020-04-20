@@ -4,11 +4,11 @@
 <?php
 require_once 'GameState.php';
 session_start();
-
+echo "what is in the _SESSION?";
 echo "<pre>";
     echo print_r($_SESSION);
      echo "</pre>";
-
+     echo "thats it";
 $previousStateObj = $_SESSION['gameState'];
 $prevStateEnum = $previousStateObj->getCurrentState();
 $Action = null;
