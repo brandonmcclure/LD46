@@ -29,7 +29,6 @@ if (isset($_SESSION['gameState'])){
 $_SESSION['gameState'] = $newGameState;
 
 $_SESSION['gameState']->InitRandomEventRepo();
-$_SESSION['gameState']->InitEntity();
 
 $stringRepo = new StringHardcodedRepository;
 $outHTML = $stringRepo->find("IntroText");

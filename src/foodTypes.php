@@ -7,9 +7,11 @@ class FoodTypeRepository
     public function __construct()
     {
         $this->foodTypes = array(
-            new foodType("Metal"),
-            new foodType("Space Plankton"),
-            new foodType("None")
+            new foodType("Metal",0.5),
+            new foodType("Space Plankton",0.5),
+            new foodType("Blue Giant Solar Energy",0.75),
+            new foodType("Rock",0.5),
+            new foodType("None",0.0)
         );
     }
 

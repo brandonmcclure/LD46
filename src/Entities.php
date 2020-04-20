@@ -12,7 +12,9 @@ class EntityRepository
         $FoodTypeRepository = $_SESSION['FoodTypeRepository'];
         $this->Entities = array(
             new Entity($FoodTypeRepository->GetFoodType("Metal")),
-            new Entity($FoodTypeRepository->GetFoodType("Space Plankton"))
+            new Entity($FoodTypeRepository->GetFoodType("Space Plankton")),
+            new Entity($FoodTypeRepository->GetFoodType("Blue Giant Solar Energy")),
+            new Entity($FoodTypeRepository->GetFoodType("Rock"))
         );
     }
     public function GetRandomEntity(){
