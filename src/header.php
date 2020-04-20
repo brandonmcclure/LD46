@@ -1,5 +1,37 @@
-﻿<html>
+﻿<?php 
+require_once 'strings.php';
+require_once 'string.php';
+require_once 'GameState.php';
+require_once 'Entity.php';
+require_once 'foodType.php';
 
+
+$FoodTypeRepository = new FoodTypeRepository();
+$RandomEventsRepository = new RandomEventsHardcodedRepository($FoodTypeRepository);
+$newGameState = new GameState();
+
+
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
+if (!isset($_SESSION['FoodTypeRepository'])){
+  $_SESSION['FoodTypeRepository'] = $FoodTypeRepository;
+}
+
+if (!isset($_SESSION['RandomEventRepository'])){
+  $_SESSION['RandomEventRepository'] = $RandomEventsRepository;
+}
+
+if (!isset($_SESSION['gameState'])){
+  $_SESSION['gameState'] = $newGameState;
+}
+
+
+
+$t = <<<e
+<html>
 <head>
     <title>Space Whale</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -26,3 +58,6 @@
         </nav>
         <h3 class="text-muted">Ludam Dare 46 - Theme 'Keep it alive'</h3>
         </div>
+e;
+
+echo $t;

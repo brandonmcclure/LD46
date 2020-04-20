@@ -17,7 +17,7 @@ class GameState{
     private $currentState;
     private $RandomEventsRepository;
     private $NumberOfTurnsTaken = 0;
-    private $isDebugMode = false;
+    private $isDebugMode = true;
     private $gameEntity;
     private $currentEvent;
     private $textFromPreviousState;
@@ -32,9 +32,6 @@ class GameState{
         }
     }
 
-    public function InitRandomEventRepo(){
-        $this->RandomEventsRepository = new RandomEventsHardcodedRepository();
-    }
     public function InitEntity(){
         $entityRepo = new EntityRepository();
         $this->gameEntity = $entityRepo->GetRandomEntity();
@@ -57,7 +54,8 @@ $this->currentState = 1;
         $this->gameEntity->Decrement_Hunger();
         $this->gameEntity->Decrement_LifeForce();
         $this->currentState = 1;
-        $this->currentEvent = $this->RandomEventsRepository->GetRandomEvent();
+        $randoEventRepo = $_SESSION['RandomEventRepository'];
+        $this->currentEvent = $randoEventRepo->GetRandomEvent();
         $this->currentEvent->Render();
         
         echo $this->gameEntity->RenderEntityStatus();

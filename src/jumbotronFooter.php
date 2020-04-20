@@ -1,2 +1,2 @@
-﻿<?php include("ShowDebugText.php"); ?>
+<?php include("ShowDebugText.php"); ?>
 
