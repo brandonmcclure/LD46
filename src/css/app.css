@@ -12,6 +12,7 @@ a{
 }
 .myText{
     color: white;
+    font-size: large;
 }
 .button {
     font: bold 11px Arial;
