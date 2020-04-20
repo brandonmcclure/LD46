@@ -152,4 +152,8 @@ e;
         }
         return $outString;
     }
+
+    public function GetString(){
+        
+    }
 }
