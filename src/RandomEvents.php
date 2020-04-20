@@ -24,6 +24,13 @@ class RandomEventsHardcodedRepository
                 $FoodTypeRepository->GetFoodType("Space Plankton")
             ),
             new RandomEvent(
+                "Super swarm",
+                "FoodChance",
+                "This area is quite dull and empty, but sudenly you see a super swarm of smallish creatures zooming past your ship. There seems to be much life making it's way quickly across this quadrant of space.",
+                "The rich planet below supports large heards of space plankton.",
+                $FoodTypeRepository->GetFoodType("Space Plankton")
+            ),
+            new RandomEvent(
                 "Void",
                 "Void",
                 "There is nothing in this section of space. The stillness gives you chills.",
@@ -61,7 +68,14 @@ class RandomEventsHardcodedRepository
             new RandomEvent(
                 "Blue solar system",
                 "FoodChance",
-                "You move towards a solar system with a hot blue star in the center",
+                "You move towards a solar system with 3 stars, a massive blue star that is absorbing the mass from the 2 smaller ones along with the collection of gas planets that have formed in this system.",
+                "<<creatureName>> absorbs energy from the nearby blue solar system",
+                $FoodTypeRepository->GetFoodType("Blue Giant Solar Energy")
+            ),
+            new RandomEvent(
+                "Blue solar system",
+                "FoodChance",
+                "You see a tri",
                 "<<creatureName>> absorbs energy from the nearby blue solar system",
                 $FoodTypeRepository->GetFoodType("Blue Giant Solar Energy")
             ),
@@ -69,6 +83,34 @@ class RandomEventsHardcodedRepository
                 "Space Whalers",
                 "DangerousEntity",
                 "A band of space whalers approach. They probably launched from that moon over there",
+                "DangerousEntity",
+                $FoodTypeRepository->GetFoodType("none")
+            ),
+            new RandomEvent(
+                "High impact asteroid shower",
+                "DangerousEntity",
+                "A swarm of high speed asteroids no smaller than a few cm in diameter come speeding out of the darkness.",
+                "DangerousEntity",
+                $FoodTypeRepository->GetFoodType("none")
+            ),
+            new RandomEvent(
+                "Space Pirates",
+                "DangerousEntity",
+                "From the horizon you see the davy jones flyng above a pack of ships that approach you.",
+                "DangerousEntity",
+                $FoodTypeRepository->GetFoodType("none")
+            ),
+            new RandomEvent(
+                "Black hole",
+                "DangerousEntity",
+                "You start to get sucked toward a black hole.",
+                "DangerousEntity",
+                $FoodTypeRepository->GetFoodType("none")
+            ),
+            new RandomEvent(
+                "Pulsar radiation beam",
+                "DangerousEntity",
+                "You have stumbled dangerously close to a pulsar.",
                 "DangerousEntity",
                 $FoodTypeRepository->GetFoodType("none")
             )
