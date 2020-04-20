@@ -7,6 +7,7 @@ require_once 'foodType.php';
 
 
 $FoodTypeRepository = new FoodTypeRepository();
+$RandomEventsRepository = new RandomEventsHardcodedRepository($FoodTypeRepository);
 $newGameState = new GameState();
 
 
@@ -15,18 +16,19 @@ if(!isset($_SESSION))
         session_start(); 
     } 
 
-if (isset($_SESSION['FoodTypeRepository'])){
-    unset($_SESSION['FoodTypeRepository']);
+if (!isset($_SESSION['FoodTypeRepository'])){
+  $_SESSION['FoodTypeRepository'] = $FoodTypeRepository;
 }
-$_SESSION['FoodTypeRepository'] = $FoodTypeRepository;
 
-
-if (isset($_SESSION['gameState'])){
-    unset($_SESSION['gameState']);
+if (!isset($_SESSION['RandomEventRepository'])){
+  $_SESSION['RandomEventRepository'] = $RandomEventsRepository;
 }
-$_SESSION['gameState'] = $newGameState;
 
-$_SESSION['gameState']->InitRandomEventRepo();
+if (!isset($_SESSION['gameState'])){
+  $_SESSION['gameState'] = $newGameState;
+}
+
+
 
 $t = <<<e
 <html>

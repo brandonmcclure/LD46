@@ -28,7 +28,6 @@ if($Action == "EasyOut"){
     $Action = "";
     include("AdvanceStateButton.php");
     
-    exit;
 }elseif($Action == "CharacterNaming_NoName"){
     $_SESSION['gameState']->CharacterNaming_NoName();
 }elseif($Action == "CharacterNaming_GiveItAName"){

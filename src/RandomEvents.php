@@ -6,9 +6,8 @@ class RandomEventsHardcodedRepository
 {
     protected $RandomEvent = array();
 
-    public function __construct()
+    public function __construct($FoodTypeRepository)
     {
-        $FoodTypeRepository = $_SESSION['FoodTypeRepository'];
         $this->RandomEvent = array(
             new RandomEvent(
                 "Planet",
