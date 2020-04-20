@@ -18,7 +18,8 @@ if(isset($_GET["action"])){
 
 # These are the results for each action
 if($Action == "EasyOut"){
-    include("EasyOut.php");
+    $s = $StringsRepository->find("IgnoreItDeathState");
+    echo $s;
     $_SESSION['gameState']->EnterDeathState();
     exit;
 }elseif($Action == "StartGame"){

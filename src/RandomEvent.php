@@ -9,12 +9,13 @@ class RandomEvent
     private $foodTypeAvailable;
 
 
-    public function __construct($eventType, $eventActionType, $eventDescription, $foodTypeAvailable)
+    public function __construct($eventType, $eventActionType, $eventDescription,$feedingString, $foodTypeAvailable)
     {
         $this->eventDescription = $eventDescription;
         $this->eventType = $eventType;
         $this->eventActionType = $eventActionType;
         $this->foodTypeAvailable = $foodTypeAvailable;
+        $this->feedingString = $feedingString;
     }
 
 
@@ -70,5 +71,13 @@ e;
 
     public function GetString(){
         
+    }
+
+    /**
+     * Get the value of eventActionType
+     */ 
+    public function getEventActionType()
+    {
+        return $this->eventActionType;
     }
 }

@@ -37,7 +37,7 @@ class GameState{
         $this->gameEntity = $entityRepo->GetRandomEntity();
 
         echo <<<e
-You look out the porthole to inspect the creature, and ask your ship's computer to run scans. You sense a connection with {$this->gameEntity->get_EntityName()}, almost as if it was speaking telepathically to you. <br>
+You look out the porthole to inspect the creature and ask your ship's computer to run scans. You sense a connection with {$this->gameEntity->get_EntityName()}, almost as if it was speaking telepathically to you. <br>
 
 You can tell that {$this->gameEntity->get_EntityName()} is afraid and unaware of where it is at or what it should do. It will follow you where you travel, and is dependent on you to keep it safe. <br><br>
 

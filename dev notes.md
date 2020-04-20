@@ -33,3 +33,10 @@ Got the mechanics for feeding the creature working and cleaned up the look (and 
 I need to expand the different types of food you can give, and add some more events that will be a threat to the creature. some extra attributes on the creature would be good as well. I think a relationship indicator for you. 
 
 Stretch goals would be to setup some more randomness in which strings are selected/how descriptions are given. Also some better css/graphic design.
+
+# 2020.04.19
+## 4:51 pm
+TODO: 
+* change Source code link css to like the home button
+
+* when displaying the creature name, sometimes it is capital, sometimes it is not.
