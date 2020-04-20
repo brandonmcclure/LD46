@@ -1,7 +1,7 @@
-# LD46
-My entry into Ludam Dare 46. I am going to write it using as much PHP as I can. The theme is `Keep it alive`. The idea around my game is that you are traveling through space and you find a creature floating around that has grown attached with you and is dependent on you for survival. You move from place to place and try to keep it alive. 
+# Whales in Space!
+My entry into Ludam Dare 46. I am going to write it using as much PHP as I can. The theme is `Keep it alive`. The idea around my game is that you are traveling through space and you find a creature floating around that has grown attached with you and is dependent on you for survival. You move from place to place and try to keep it alive. The main mechanic for that is by choosing the correct places to look for food. 
 
-Play it: https://ld46project.azurewebsites.net/
+[Play it here.](https://ld46project.azurewebsites.net/) It is running as an azure app service. 
 
 [Ludam Dare Game page](https://ldjam.com/events/ludum-dare/46/$192200)
 

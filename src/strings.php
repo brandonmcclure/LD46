@@ -32,7 +32,7 @@ class StringHardcodedRepository
             new GameString(
                 "startPageHeader",
                 "ImmersionBreak",
-                "This is my entry to Ludam Dare 46. I call it 'Space Whales'"
+                "Whales in Space!"
             ),
             new GameString(
                 "IgnoreItDeathState",

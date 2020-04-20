@@ -32,7 +32,7 @@ if (!isset($_SESSION['gameState'])) {
 $t = <<<e
 <html>
 <head>
-    <title>Space Whale</title>
+    <title>{$StringsRepository->find("startPageHeader")}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="My entry into Ludam Dare 46 - Theme 'Keep it alive'">
     <meta name=" author" content="Brandon McClure Brandonmcclure89@gmail.com">
@@ -43,7 +43,7 @@ $t = <<<e
 <body>
 <header class="page-header">
     <div class="page-header-inner">
-      <h3 class="masthead-brand">Ludam Dare 46 - Theme 'Keep it alive'</h3>
+      <h3 class="masthead-brand">{$StringsRepository->find("startPageHeader")} - presented for Ludam Dare 46 - Theme 'Keep it alive'</h3>
           <ul class="pull-right">
           <li class="pull-right"><a href="/">index</a></li>
             <li class="pull-right"><a href="/ResetSession.php">Restart game</a></li>

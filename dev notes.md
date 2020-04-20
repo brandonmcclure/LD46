@@ -39,4 +39,10 @@ Stretch goals would be to setup some more randomness in which strings are select
 TODO: 
 * change Source code link css to like the home button
 
-* when displaying the creature name, sometimes it is capital, sometimes it is not.
+# 2020.04.20
+## 4:17 pm
+I calling this done. Of course there is more I could do. Specifically I would have liked to setup more attributes and re balance the whole "life force" concept. It tracking how many times you make a choice that is negative for it and disliking you (and therefore responding more harshly for some events) or liking you when you treat it well (and therefore behaving better for you). I think I did improve my css/graphics since saturday, although that was time not well spent as I setup bootstrap only to scrap it and build my css from scratch (although I did look at bootstrap alot for examples)
+
+I would have preferred to spend less time mucking with getting the PHP to deploy on azure, but was a good experience working through the PHP configuration and the kudo(sp?) console/general debugging steps needed. 
+
+I also wish I would not have run into the UTF8-BOM issues. The `MakeAllUTF8-NoBOM.ps1` script should be built into MS's default PHP deployment imo. 
