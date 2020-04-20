@@ -1,1 +1,1 @@
-<div class="jumbotron myText myBackground">
+<main role="main" class="inner cover myText myBackground">

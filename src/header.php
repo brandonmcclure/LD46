@@ -40,24 +40,23 @@ $t = <<<e
 
     
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- Custom styles for this template -->
-    <link href="css/jumbotron-narrow.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="container">
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-    <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation" class="active"><a href="https://github.com/brandonmcclure/LD46">source code</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Ludam Dare 46 - Theme 'Keep it alive'</h3>
-        </div>
+    <header class="masthead mb-auto page-header">
+    <div class="inner">
+      <h3 class="masthead-brand">Ludam Dare 46 - Theme 'Keep it alive'</h3>
+      <nav class="nav nav-masthead justify-content-center">
+      <a class="button" href="#">Home</a>
+        <a class="button" href="https://github.com/brandonmcclure/LD46">Source Code</a>
+      </nav>
+    </div>
+  </header>
 e;
 
 echo $t;

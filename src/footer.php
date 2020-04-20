@@ -1,11 +1,8 @@
-
-<div >
-    <div class="col-lg-6">
+<footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Brandon McClure. 2020</p>
     </div>
-    <div class="footer myText">
-        <p>&copy; Brandon McClure. 2020</p>
-    </div>
-</div>
+  </footer>
 
 
 <script src="https://code.jquery.com/jquery.js"></script>
